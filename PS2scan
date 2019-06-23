@@ -1,3 +1,16 @@
+module ps2scan(
+	clk, rst_n,
+	ps2_clk, ps2_data,
+	ps2_byte, ps2_state
+    );
+	
+	input clk;
+	input rst_n;
+	input ps2_clk;
+	input ps2_data;
+	output [7:0] ps2_byte;	// ps2扫描值
+	output ps2_state;
+
 //捕捉ps2时钟下降沿
 reg ps2_clk_r0,ps2_clk_r1,ps2_clk_r2;
 wire neg_ps2_clk;
@@ -132,3 +145,5 @@ always @(posedge clk or negedge rst_n) begin
     
     assign ps2_byte = ps2_ascii;
     assign ps2_state = ps2_state_r;
+
+endmodule
