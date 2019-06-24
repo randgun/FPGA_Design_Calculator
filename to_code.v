@@ -1,7 +1,7 @@
 //////////////数字转换成数码管编码模块//////////////
 module num_to_code(num,code,data,rst);
 input data;      //输入0-999的数据 
-input num;      //十进制位数
+//input num;      //十进制位数
 input rst
 output code;    //输出数据的每一位数码管段码
 reg [11:0] data;  
