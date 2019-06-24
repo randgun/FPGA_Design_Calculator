@@ -76,7 +76,7 @@ end
 
   always@(binary)
   begin
-  //set 100's,10's,and 1'8 too
+  //set 100's,10's,and 1's to 0
     Hundreds=4'd0;
     Tens=4'd0;
     Ones=4'd0;
@@ -93,7 +93,7 @@ end
         Hundreds=Hundreds << 1;
         Hundreds[0]=Tens[3];
         Tens=Tens << 1;
-        Tens[0]=Ones[3])
+        Tens[0]=Ones[3];
         Ones=Ones <<1;
         Ones[0]=binary[i];
       end
