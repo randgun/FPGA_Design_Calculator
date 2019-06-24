@@ -1,0 +1,30 @@
+module trans(
+input ps2_byte,
+output reg [3:0] key_value
+);
+
+always@(ps2_byte)
+  begin
+    case (ps2_byte)
+      4'h30 : key_value <= 8'h00; // "0"
+      4'h31 : key_value <= 8'h01; // "1"
+      4'h32 : key_value <= 8'h02; // "2"
+      4'h33 : key_value <= 8'h03; // "3"
+	    4'h34 : key_value <= 8'h04; // "4"
+	    4'h35 : key_value <= 8'h05; // "5"
+	    4'h36 : key_value <= 8'h06; // "6"
+	    4'h37 : key_value <= 8'h07; // "7"
+	    4'h38 : key_value <= 8'h08; // "8"
+	    4'h39 : key_value <= 8'h09; // "9"
+          
+      //用a、b、c、d、e分别代表加减乘除和等于
+      4'h61 : key_value <= 8'h09; // "+"
+      4'h62 : key_value <= 8'h09; // "-"
+      4'h63 : key_value <= 8'h09; // "*"
+      4'h64 : key_value <= 8'h09; // "/"
+      4'h65 : key_value <= 8'h09; // "="
+	    default : key_value <= 8'hff; 
+    endcase
+  end
+  
+endmodule
