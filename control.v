@@ -14,7 +14,7 @@ localparam IDLE = 4'b000;
 localparam S0 = 4'b001;
 localparam S1=4'b010;
 localparam S2=4'b100;
-assign num_out = num reg2 ? num reg2:num regl;
+assign num_out = num_reg2 ? num_reg2 : num_regl;
 reg [3:0] state_now,state_nxt;
 reg [3:0] opcode_reg;
 
@@ -35,18 +35,18 @@ begin
       opcode_reg<=0;
       opcode<=0;
     end
-   else if(flag)
+  else if(flag)
    
     case(state_now)
     
-    SO:if((key_value >= 4'h0)&&(key_value <= 4'h9))
+    S0:if((key_value >= 4'h0)&&(key_value <= 4'h9))
         num_reg1 <= {num_reg1[19:0],key_value};
       else if(key_value>=4'ha && key_value <= 4'hd)
         begin
           state_nxt<=S1;
           opcode_reg <= key_value;
         end
-    Sl:if(key_value >= 4'ha && key value<= 4'hd)
+    S1:if(key_value >= 4'ha && key value<= 4'hd)
         opcode_reg <= key_value;
       else if(key_value >= 4'h0 && key_value <= 4'h9)
         begin
@@ -68,7 +68,7 @@ begin
         else if((key_value >= 4'ha) && (key_value <= 4'hd))
           begin
             opcode_reg <= key_value;
-            State_nxt <= S1;
+            state_nxt <= S1;
           end
     endcase
 end
