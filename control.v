@@ -5,7 +5,7 @@ input [3:0] key_value,
 input flag,
 input [23:0] num_result,
 output reg[23:0] num_regl,
-outpat reg[23:0] num _reg2,
+output reg[23:0] num _reg2,
 output reg[3:0] opcode,
 output [23:0] num_out
 );
