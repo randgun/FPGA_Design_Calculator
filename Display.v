@@ -2,7 +2,7 @@
 module display(clk, seg, num, seg_d, seg_w);
 input seg;                     //输入的2*num位段码数据
 input clk;                     //扫描时钟
-input num;                     //读取的运算位数
+//input num;                     //读取的运算位数
 output seg_d;                  //输出到管脚的段码数据
 output seg_w;                  //输出到管脚的位选数据
 
