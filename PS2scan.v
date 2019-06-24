@@ -101,7 +101,8 @@ always @(posedge clk or negedge rst_n) begin
             ps2_byte_r <= 8'd0;
         end
         else if (num == 4'd10) begin    // 刚传输一个字节
-            if (temp_data == 8'hf0)    begin // 断码的第一个字节
+	    if (temp_data == 8'hf0) // 断码的第一个字节
+	    begin 
                 key_f0 <= 1'b1;
             end    
             else begin
