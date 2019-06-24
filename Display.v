@@ -6,7 +6,7 @@ input num;                     //读取的运算位数
 output seg_d;                  //输出到管脚的段码数据
 output seg_w;                  //输出到管脚的位选数据
 
-reg[31:0] seg; 
+reg[11:0] seg; 
 reg[7:0] seg_d;
 reg[3:0] seg_w;
 reg[7:0] scan_cnt; //位选扫描
