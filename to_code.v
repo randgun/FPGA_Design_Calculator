@@ -7,7 +7,7 @@ output code;    //输出数据的每一位数码管段码
 reg [11:0] data;  
 reg [11:0] code;
 reg num;
-reg [31:0] fuck; 
+reg [11:0] fuck; 
 	
 always @ (data)  //当数字变动一次就进行一次转换
   begin
