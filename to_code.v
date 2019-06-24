@@ -4,7 +4,7 @@ input data;      //输入0-999的数据
 input num;      //十进制位数
 input rst
 output code;    //输出数据的每一位数码管段码
-reg [23:0] data;  
+reg [11:0] data;  
 reg [23:0] code;
 reg num;
 reg [11:0] fuck; 
