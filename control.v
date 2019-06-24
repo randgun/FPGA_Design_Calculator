@@ -10,7 +10,7 @@ output reg[3:0] opcode,
 output [23:0] num_out
 output cnt1,
 output cnt2,
-output state_now
+output state_nxt
 );
 
 localparam IDLE = 4'b000;
@@ -65,16 +65,17 @@ begin
         end
       else if(key_value == 4'he)
         begin
-          num_reg1 <= num_result;
-          num_reg2 <= 0;
+        //  num_reg1 <= num_result;
+        //  num_reg2 <= 0;
           opcode_reg <= 0;
           state_nxt <= S2;
         end
                                 
     S2:if(key_value>=4'h0 && key_value<=4'h9)
         begin
-          cnt1 <= 0;
+          cnt1 <= 1;
           cnt2 <= 0;
+          num_reg2 <= 0;
           num_reg1 <= key_value;
           state_nxt <= S0;
         end
