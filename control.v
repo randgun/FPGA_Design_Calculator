@@ -20,6 +20,7 @@ localparam S2 = 4'b100;
 assign num_out = num_reg2 ? num_reg2 : num_reg1;
 reg [3:0] state_now,state_nxt;
 reg [3:0] opcode_reg;
+reg delay;
 
 always@(posedge CLK_1K or negedge RST)
 begin
@@ -65,10 +66,14 @@ begin
         end
       else if(key_value == 4'he)
         begin
-        //  num_reg1 <= num_result;
-        //  num_reg2 <= 0;
+         
+       //   num_reg2 <= 0;
           opcode_reg <= 0;
           state_nxt <= S2;
+          delay = 20;
+          while(delay)
+            delay = delay - 1;
+          num_reg1 <= num_result;
         end
                                 
     S2:if(key_value>=4'h0 && key_value<=4'h9)
