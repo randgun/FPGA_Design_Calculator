@@ -59,7 +59,7 @@ begin
     a<=a+1;
   end
   key2<=sum;
-  
+  //用a、b、c、d、e分别代表加减乘除和等于
   case (sym)
     8'h61: result <= key1 + key2;
     8'h62: result <= key1 - key2;
