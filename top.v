@@ -30,17 +30,17 @@ initial   //初始化数据
 ////////////实例化分频模块////////////////
 clock_div   clock_div(
                        .clk(clock),
-		                   .clk_out1(clk1),
-		                   .clk_out2(clk2)
-			               );
+		       .clk_out1(clk1),
+		       .clk_out2(clk2)
+		     );
 
 ////////////实例化ps2模块////////////////
 PS2scan    Ps2scan(
                     .clk(clock),
-	                  .rst_n(rst),
-	                  .ps2_clk(ps2_clk),
-	                  .ps2_data(ps2_data),
-	                  .ps2_byte(ps2_byte)
+	            .rst_n(rst),
+	            .ps2_clk(ps2_clk),
+	            .ps2_data(ps2_data),
+	            .ps2_byte(ps2_byte)
                   );
 
 ////////////实例化数据转换模块////////////	
@@ -80,21 +80,18 @@ calculate calculate(
 ////////////实例化段码转换模块////////////						 
 to_code  num_to_code(
                       .data(num_out),
-			                .code(code)
-			              );
+		      .code(code)
+		    );
 
 ////////////实例化显示模块////////////////								
 Display   display(
                    .clk(clk2),
-		               .seg(code),		      
-		               .seg_d(seg_d),
+		   .seg(code),		      
+		   .seg_d(seg_d),
                    .seg_w(seg_w)
-		             );		
+		 );		
 
 always@(ps2_byte)
   flag <= 1;
-
-
-
 
 endmodule
