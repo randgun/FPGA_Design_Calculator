@@ -1,26 +1,26 @@
 module in_ctrl(
 input CLK_1K,
-input RSTN,
+input RST,
 input [3:0] key_value,
 input flag,
 input [23:0] num_result,
 output reg[23:0] num_regl,
-output reg[23:0] num _reg2,
+output reg[23:0] num_reg2,
 output reg[3:0] opcode,
 output [23:0] num_out
 );
 
 localparam IDLE = 4'b000;
 localparam S0 = 4'b001;
-localparam S1=4'b010;
-localparam S2=4'b100;
+localparam S1 = 4'b010;
+localparam S2 = 4'b100;
 assign num_out = num_reg2 ? num_reg2 : num_regl;
 reg [3:0] state_now,state_nxt;
 reg [3:0] opcode_reg;
 
-always@(posedge CLK_1K or negedge RSTN)
+always@(posedge CLK_1K or negedge RST)
 begin
-if(~RSTN)
+if(~RST)
   state_now <= S0;
 else
   state_now <= state_nxt;
@@ -28,12 +28,12 @@ end
 
 always@(posedge CLK_1K or negedge RSTN)
 begin
-  if(~RSTN)
+  if(~RST)
     begin
-      num_regl<=0;
-      num_reg2<=0;
-      opcode_reg<=0;
-      opcode<=0;
+      num_regl <= 0;
+      num_reg2 <= 0;
+      opcode_reg <= 0;
+      opcode <= 0;
     end
   else if(flag)
    
