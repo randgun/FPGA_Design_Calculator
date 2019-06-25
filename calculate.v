@@ -17,6 +17,7 @@ module calculate(
   reg [3:0] Tens;
   reg [3:0] Ones;
   reg [11:0] hh;
+  wire [11:0] result; 
 
 assign result = hh;
 always @(reg_num2)
