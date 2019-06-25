@@ -12,14 +12,14 @@ wire   clk1;      //分频后的时钟1 因为分频器输出为reg类型，故�
 wire   clk2;      //同上
 wire [23:0] num_reg1,
 wire [23:0] num_reg2,
-wire opcode;
-wire num_out;
+wire [3:0] opcode;
+wire [11:0] num_out;
 wire cnt1;
 wire cnt2;
-wire state_nxt;
-wire result;
-wire code;
-wire ps2_byte;
+wire [3:0] state_nxt;
+wire [11:0] result;
+wire [11:0] code;
+wire [3:0] ps2_byte;
 
 initial   //初始化数据
  begin
