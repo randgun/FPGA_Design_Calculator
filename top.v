@@ -35,7 +35,7 @@ clock_div   clock_div(
 		     );
 
 ////////////实例化ps2模块////////////////
-PS2scan    Ps2scan(
+PS2scan    PS2scan(
                     .clk(clock),
 	            .rst_n(rst),
 	            .ps2_clk(ps2_clk),
