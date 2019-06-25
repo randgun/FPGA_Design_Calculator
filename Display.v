@@ -32,7 +32,7 @@ always @ (scan_cnt)   //数码管位选
  begin
   case (scan_cnt)
     3'd0 : seg_w <= 4'b0100;
-	  3'd1 : seg_w <= 4'b0010;
+    3'd1 : seg_w <= 4'b0010;
 	  3'd2 : seg_w <= 4'b0001;
 	  default :seg_w <= 4'b0000;
   endcase
