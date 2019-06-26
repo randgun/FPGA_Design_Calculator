@@ -1,12 +1,12 @@
 //////////////数码管显示模块//////////////
-module display(clk, seg, num, seg_d, seg_w);
+module display(clk, seg, seg_d, seg_w);
 input seg;                     //输入的2*num位段码数据
 input clk;                     //扫描时钟
 //input num;                     //读取的运算位数
 output seg_d;                  //输出到管脚的段码数据
 output seg_w;                  //输出到管脚的位选数据
 
-reg[23:0] seg; 
+wire[23:0] seg; 
 reg[7:0] seg_d;
 reg[3:0] seg_w;
 reg[7:0] scan_cnt; //位选扫描
