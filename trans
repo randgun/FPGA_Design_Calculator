@@ -6,16 +6,16 @@ output reg [3:0] key_value
 always@(ps2_byte)
   begin
     case (ps2_byte)
-      4'h30 : key_value <= 8'h00; // "0"
-      4'h31 : key_value <= 8'h01; // "1"
-      4'h32 : key_value <= 8'h02; // "2"
-      4'h33 : key_value <= 8'h03; // "3"
-      4'h34 : key_value <= 8'h04; // "4"
-      4'h35 : key_value <= 8'h05; // "5"
-      4'h36 : key_value <= 8'h06; // "6"
-      4'h37 : key_value <= 8'h07; // "7"
-      4'h38 : key_value <= 8'h08; // "8"
-      4'h39 : key_value <= 8'h09; // "9"
+      8'h30 : key_value <= 8'h00; // "0"
+      8'h31 : key_value <= 8'h01; // "1"
+      8'h32 : key_value <= 8'h02; // "2"
+      8'h33 : key_value <= 8'h03; // "3"
+      8'h34 : key_value <= 8'h04; // "4"
+      8'h35 : key_value <= 8'h05; // "5"
+      8'h36 : key_value <= 8'h06; // "6"
+      8'h37 : key_value <= 8'h07; // "7"
+      8'h38 : key_value <= 8'h08; // "8"
+      8'h39 : key_value <= 8'h09; // "9"
     endcase
   end
   
