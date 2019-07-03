@@ -1,7 +1,10 @@
 module trans(
 input ps2_byte,
-output reg [3:0] key_value
+output reg [3:0] key_value,
+output flag
 );
+reg g = 0;
+assign flag = g;
 
 always@(ps2_byte)
   begin
@@ -17,6 +20,7 @@ always@(ps2_byte)
       8'h38 : key_value <= 8'h08; // "8"
       8'h39 : key_value <= 8'h09; // "9"
     endcase
+    g <= 1; 
   end
   
 endmodule
