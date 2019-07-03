@@ -138,7 +138,12 @@ always @(posedge clk or negedge rst_n) begin
             8'h3e: ps2_ascii = 8'h38;    //8
             8'h46: ps2_ascii = 8'h39;    //9
             8'h45: ps2_ascii = 8'h30;    //0                      
-            8'h5a: ps2_ascii = 8'h0a;    //enter
+					
+						8'h1c: ps2_ascii = 8'h61;    // +
+            8'h32: ps2_ascii = 8'h62;    // -
+            8'h21: ps2_ascii = 8'h63;    // *
+            8'h23: ps2_ascii = 8'h64;    // / 
+					  8'h24: ps2_ascii = 8'h65;    // = 
 
             default    ps2_ascii = 8'hfe;
         endcase    
