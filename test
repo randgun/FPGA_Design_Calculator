@@ -1,0 +1,36 @@
+module test(
+);
+
+reg  clk;   
+reg  rst;
+reg [3:0] val;
+reg [4:0] w_key;
+wire [7:0]seg_d;     //数码管的段选
+wire [3:0]seg_w;    //数码管的位选
+
+always #1 clk = ~clk;//生成2ns一个周期的时钟
+initial
+   begin
+         clk = 0;   rst = 0; #10;rst = 1;
+     
+         w_key = 5'b00010 ; val = 4'h5;//输入5
+         #10;  // wait 10ns
+         w_key = 5'b00000;
+         #20
+         w_key = 5'b10000;//输入加号
+         #10
+         w_key = 5'b00000;
+         #20;
+         w_key = 5'b00010 ; val = 4'h1;//输入1
+         #100;
+         w_key = 5'b00000;
+         #20      
+         w_key = 5'h00001;//输入等号
+         #10
+          w_key = 5'b00000;
+    end
+
+seg_clock top(.clock(clk), .rst(rst), .seg_d(seg_d), //例化顶层文件
+.seg_w(seg_w),.w_key(w_key),.val(val)); 
+      
+endmodule
