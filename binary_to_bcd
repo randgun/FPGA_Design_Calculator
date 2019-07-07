@@ -1,0 +1,27 @@
+module bcd (
+  input wire [7:0] b,
+  output wire [11:0] p
+);
+
+// 中间变量
+reg [17:0] z;
+reg [11:0] pp;
+assign p = pp;
+integer i;
+
+always @ ( * )
+begin
+  for (i = 0; i <=17; i = i + 1)
+    z[i] = 0;
+    z[10:3] = b; // shift b left 3 places
+  repeat (5) // 重复 5 次
+  begin
+    if (z[11:8] > 4) // 如果个位大于 4
+      z[11:8] = z[11:8] +3; // 加 3
+    if (z[15:12] > 4) // 如果十位大于 4
+      z[15:12] = z[15:12] +3; // 加 3
+    z[17:1] = z[16:0]; // 左移一位
+  end
+  pp = {2'b00,z[17:8]};//bcd
+end
+endmodule
