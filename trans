@@ -1,26 +1,33 @@
-module trans(
-input ps2_byte,
-output reg [3:0] key_value,
-output flag
+module the_key(
+  input clk,
+  input rst,
+  input [3:0] val,
+  input [4:0] w_key,
+  output [3:0] byte,
+  output state,
+  output a
 );
-reg g = 0;
-assign flag = g;
+reg [3:0]ss;
+assign a = w_key[0];
+assign byte = ss; 
+assign state = w_key[4]|w_key[3]|w_key[2]|w_key[1]|w_key[0];
 
-always@(ps2_byte)
-  begin
-    case (ps2_byte)
-      8'h30 : key_value <= 8'h00; // "0"
-      8'h31 : key_value <= 8'h01; // "1"
-      8'h32 : key_value <= 8'h02; // "2"
-      8'h33 : key_value <= 8'h03; // "3"
-      8'h34 : key_value <= 8'h04; // "4"
-      8'h35 : key_value <= 8'h05; // "5"
-      8'h36 : key_value <= 8'h06; // "6"
-      8'h37 : key_value <= 8'h07; // "7"
-      8'h38 : key_value <= 8'h08; // "8"
-      8'h39 : key_value <= 8'h09; // "9"
-    endcase
-    g <= 1; 
-  end
-  
+always@(posedge clk or negedge rst)
+begin
+  if (!rst)
+      ss <= 0;
+     
+  else if(w_key[4] == 1)
+    ss <= 4'ha;
+  else if(w_key[3] == 1)
+    ss <= 4'hb;
+  else if(w_key[2] == 1)
+    ss <= 4'hc;
+  else if(w_key[1] == 1)
+    ss <= val;
+  else if(w_key[0] == 1)
+    ss <= 4'he;
+end
+
 endmodule
+
