@@ -43,7 +43,7 @@ clock_div   clock_div(
 
 ////////////实例化ps2模块////////////////
 the_key    the_key(
-                    .clk(clock),
+                  .clk(clock),
 	                .rst(rst),
 	                .val(val),
 	                .w_key(w_key),
@@ -62,7 +62,6 @@ in_ctrl control(
                   .CLK_1K(clock),
                   .RST(rst),
                   .key_value(byte),
-                 // .flag(flag),
                   .num_result(p2),
                   .reg1(num_reg1),
                   .reg2(num_reg2),
