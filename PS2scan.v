@@ -123,7 +123,7 @@ always @(posedge clk or negedge rst_n) begin
 
 //---------------------------------------
 //利用case判断不同的通码，来决定字符的ASCII
-	  reg [7:0] ps2_ascii = 8'h00;    //接收相应的ascii
+    reg [7:0] ps2_ascii = 8'h00;    //接收相应的ascii
     
     always @(posedge clk) 
     begin
@@ -139,11 +139,11 @@ always @(posedge clk or negedge rst_n) begin
             8'h46: ps2_ascii = 8'h39;    //9
             8'h45: ps2_ascii = 8'h30;    //0                      
 					
-						8'h1c: ps2_ascii = 8'h61;    // +
+	    8'h1c: ps2_ascii = 8'h61;    // +
             8'h32: ps2_ascii = 8'h62;    // -
             8'h21: ps2_ascii = 8'h63;    // *
             8'h23: ps2_ascii = 8'h64;    // / 
-					  8'h24: ps2_ascii = 8'h65;    // = 
+	    8'h24: ps2_ascii = 8'h65;    // = 
 
             default    ps2_ascii = 8'hfe;
         endcase    
