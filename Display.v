@@ -35,20 +35,20 @@ always @ (posedge clk or negedge rst)  //数码管扫描
 always @ (scan_cnt)   //数码管位选
  begin
    case (scan_cnt)
-     3'd0 : seg_w0 = 4'b0100;
-     3'd1 : seg_w0 = 4'b0010;
-		 3'd2 : seg_w0 = 4'b0001;
-		 default :seg_w0 = 4'b0000;
+	3'd0 : seg_w0 = 4'b0100;
+	3'd1 : seg_w0 = 4'b0010;
+	3'd2 : seg_w0 = 4'b0001;
+	default :seg_w0 = 4'b0000;
    endcase
  end 
   
 always @ (scan_cnt)  //数码管显示数据
  begin
    case (scan_cnt)
-   	 3'd0 : seg_d0 = seg3; 
-		 3'd1 : seg_d0 = seg2;
-		 3'd2 : seg_d0 = seg1;
-		 default :seg_d0 = 8'h00;
+	3'd0 : seg_d0 = seg3; 
+	3'd1 : seg_d0 = seg2;
+	3'd2 : seg_d0 = seg1;
+	default :seg_d0 = 8'h00;
    endcase  
  end
 
